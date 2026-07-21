@@ -61,6 +61,7 @@ data class BackgroundColors(
     val b1: Color,
     val b2: Color,
     val b3: Color,
+    val onBackground: Color,
 )
 
 @Immutable
@@ -104,7 +105,7 @@ val LightExtendedColors = ExtendedColors(
         primary = InkLight.copy(alpha = 0.12f),
         secondary = InkLight.copy(alpha = 0.06f),
     ),
-    background = BackgroundColors(BackgroundB0Light, BackgroundB1Light, BackgroundB2Light, BackgroundB3Light),
+    background = BackgroundColors(BackgroundB0Light, BackgroundB1Light, BackgroundB2Light, BackgroundB3Light, onBackground = TextPrimaryLight),
 )
 
 val DarkExtendedColors = ExtendedColors(
@@ -126,7 +127,7 @@ val DarkExtendedColors = ExtendedColors(
         primary = InkDark.copy(alpha = 0.12f),
         secondary = InkDark.copy(alpha = 0.06f),
     ),
-    background = BackgroundColors(BackgroundB0Dark, BackgroundB1Dark, BackgroundB2Dark, BackgroundB3Dark),
+    background = BackgroundColors(BackgroundB0Dark, BackgroundB1Dark, BackgroundB2Dark, BackgroundB3Dark, onBackground = TextPrimaryDark),
 )
 
 // ---------------------------------------------------------------------------
@@ -141,6 +142,18 @@ val MaterialTheme.extendedColors: ExtendedColors
     @Composable
     @ReadOnlyComposable
     get() = LocalExtendedColors.current
+
+object NekkoTheme {
+    val colors: ExtendedColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalExtendedColors.current
+
+    val typography: AppTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalAppTypography.current
+}
 
 // ---------------------------------------------------------------------------
 // Material 3 ColorScheme mapping

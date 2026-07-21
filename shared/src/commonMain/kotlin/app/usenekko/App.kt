@@ -3,7 +3,6 @@ package app.usenekko
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,13 +17,13 @@ fun App() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
+                .background(NekkoTheme.colors.background.b1),
             contentAlignment = Alignment.Center,
         ) {
             Text(
                 text = "Nekko App",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground,
+                style = NekkoTheme.typography.heading2Bold,
+                color = NekkoTheme.colors.text.primary,
             )
         }
     }
