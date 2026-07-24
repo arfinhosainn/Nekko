@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.remember
 import app.usenekko.navigation.Navigator
 import app.usenekko.navigation.Screen
+import app.usenekko.onboarding.name.NameScreen
 import app.usenekko.onboarding.phone.CodeVerificationScreen
 import app.usenekko.onboarding.phone.PhoneScreen
 import app.usenekko.onboarding.welcome.WelcomeScreen
@@ -30,6 +31,9 @@ class MainActivity : ComponentActivity() {
                     )
                     is Screen.CodeVerification -> CodeVerificationScreen(
                         phoneNumber = screen.phoneNumber,
+                        onNavigateToNext = { navigator.navigate(Screen.Name) },
+                    )
+                    is Screen.Name -> NameScreen(
                         onNavigateToNext = { /* TODO: next screen */ },
                     )
                 }
