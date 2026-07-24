@@ -35,6 +35,7 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun WelcomeScreen(
+    onNavigateToPhone: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -127,7 +128,7 @@ fun WelcomeScreen(
                         contentColor = NekkoTheme.colors.background.onBackground
                     ),
                     text = "Continue with Phone",
-                    onClick = {},
+                    onClick = onNavigateToPhone,
                     loading = false
                 )
                 Spacer(Modifier.height(25.dp))
