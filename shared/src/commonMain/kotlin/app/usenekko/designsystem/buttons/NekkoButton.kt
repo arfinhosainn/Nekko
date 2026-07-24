@@ -31,7 +31,7 @@ fun NekkoButton(
         disabledContentColor = NekkoTheme.colors.text.quaternary,
     ),
     contentPadding: PaddingValues = PaddingValues(horizontal = 35.dp, vertical = 15.dp),
-    textStyle: TextStyle = NekkoTheme.typography.heading5Semibold,
+    textStyle: TextStyle = NekkoTheme.typography.heading3Bold,
 ) {
     Button(
         onClick = onClick,

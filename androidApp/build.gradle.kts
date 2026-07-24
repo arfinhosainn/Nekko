@@ -12,6 +12,7 @@ kotlin {
 }
 dependencies {
     implementation(project(":shared"))
+    implementation(project(":onboarding"))
 
     implementation(libs.androidx.activity.compose)
 
