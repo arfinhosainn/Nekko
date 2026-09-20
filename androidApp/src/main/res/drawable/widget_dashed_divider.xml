@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Horizontal dashed divider matching the home screen's DashedContactDivider
+    (6dp dash / 6dp gap). Tinted via Image colorFilter in Glance.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="2dp"
+    android:viewportWidth="120"
+    android:viewportHeight="2">
+    <path android:fillColor="#FFFFFF" android:pathData="M0,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M12,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M24,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M36,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M48,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M60,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M72,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M84,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M96,0h6v2h-6z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M108,0h6v2h-6z" />
+</vector>

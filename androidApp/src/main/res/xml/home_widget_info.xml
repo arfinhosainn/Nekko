@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Foster home widget — default 4x2, resizable down to 2x2 (half width).
+
+    Cell-based sizing (Google formula):
+      4-wide minWidth       = 70dp * 4 - 30dp = 250dp
+      2-wide minResizeWidth = 70dp * 2 - 30dp = 110dp
+      2-tall minHeight      = 70dp * 2 - 30dp = 110dp
+
+    At full/wide size the UI shows calendar + checklist; when resized below the
+    wide breakpoint Glance shows checklist only (see HomeWidget.kt).
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/home_widget_description"
+    android:initialLayout="@layout/home_widget_placeholder"
+    android:minWidth="250dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="110dp"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="4"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

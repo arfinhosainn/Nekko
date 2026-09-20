@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug-only manifest overlay. Merged into the debug build; absent from the
+    release build. Registers the widget-pinning helper used to place the 4x2
+    home widget during design iterations.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:exported="true"
+            android:label="Add Foster Home Widget"
+            android:name="app.usefoster.widget.AddHomeWidgetDebugActivity" />
+    </application>
+
+</manifest>

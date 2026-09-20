@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		D89F4D073018839D005B07F9 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D89F4D063018839D005B07F9 /* GoogleSignIn */; };
 		D89F4D093018839D005B07F9 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D89F4D083018839D005B07F9 /* GoogleSignInSwift */; };
+		C0DE00000000000000000001 /* FosterWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C0DE00000000000000000002 /* FosterWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F72596F734EC37AD32DDBE4A /* Foster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DE00000000000000000002 /* FosterWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FosterWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -22,6 +24,13 @@
 				Info.plist,
 			);
 			target = 00463BD4E771DF81E4163637 /* iosApp */;
+		};
+		C0DE00000000000000000004 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C0DE00000000000000000009 /* FosterWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -39,6 +48,14 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		C0DE00000000000000000003 /* FosterWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C0DE00000000000000000004 /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+			);
+			path = FosterWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +68,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0DE00000000000000000005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +83,7 @@
 			children = (
 				DF6CF810D099BBC49F16C1B6 /* Configuration */,
 				3A57B881C9C5411030797A68 /* iosApp */,
+				C0DE00000000000000000003 /* FosterWidget */,
 				755456A10E0CBD7C2B92D610 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F72596F734EC37AD32DDBE4A /* Foster.app */,
+				C0DE00000000000000000002 /* FosterWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,10 +108,12 @@
 				2B31FC6FAD8A2F2CBDE07980 /* Sources */,
 				E5B9FC338CC4ED7EB75783AD /* Frameworks */,
 				C15B29F9B1188C3A7CDC97A3 /* Resources */,
+				C0DE00000000000000000008 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0DE0000000000000000000A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				3A57B881C9C5411030797A68 /* iosApp */,
@@ -99,6 +127,28 @@
 			productReference = F72596F734EC37AD32DDBE4A /* Foster.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C0DE00000000000000000009 /* FosterWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0DE0000000000000000000E /* Build configuration list for PBXNativeTarget "FosterWidgetExtension" */;
+			buildPhases = (
+				C0DE00000000000000000007 /* Sources */,
+				C0DE00000000000000000005 /* Frameworks */,
+				C0DE00000000000000000006 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C0DE00000000000000000003 /* FosterWidget */,
+			);
+			name = FosterWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = FosterWidgetExtension;
+			productReference = C0DE00000000000000000002 /* FosterWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -110,6 +160,9 @@
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					00463BD4E771DF81E4163637 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					C0DE00000000000000000009 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -132,12 +185,51 @@
 			projectRoot = "";
 			targets = (
 				00463BD4E771DF81E4163637 /* iosApp */,
+				C0DE00000000000000000009 /* FosterWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C0DE00000000000000000008 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstSubfolderSpec = 13;
+			files = (
+				C0DE00000000000000000001 /* FosterWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0DE0000000000000000000A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0DE00000000000000000009 /* FosterWidgetExtension */;
+			targetProxy = C0DE0000000000000000000B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		C0DE0000000000000000000B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49F472CDC09A4BFF970FA87C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0DE00000000000000000009;
+			remoteInfo = FosterWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		C15B29F9B1188C3A7CDC97A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DE00000000000000000006 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,6 +257,13 @@
 
 /* Begin PBXSourcesBuildPhase section */
 		2B31FC6FAD8A2F2CBDE07980 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0DE00000000000000000007 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,6 +464,64 @@
 			};
 			name = Debug;
 		};
+		C0DE0000000000000000000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = DF6CF810D099BBC49F16C1B6 /* Configuration */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FosterWidget/FosterWidget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "$(TEAM_ID)";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FosterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Foster;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.usefoster.Foster$(TEAM_ID).FosterWidget";
+				PRODUCT_NAME = FosterWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0DE0000000000000000000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = DF6CF810D099BBC49F16C1B6 /* Configuration */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FosterWidget/FosterWidget.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "$(TEAM_ID)";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FosterWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Foster;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.usefoster.Foster$(TEAM_ID).FosterWidget";
+				PRODUCT_NAME = FosterWidget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -382,6 +539,15 @@
 			buildConfigurations = (
 				384F6A56AFA2438D851F9990 /* Debug */,
 				1CFF9868FF00FC4C68469460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0DE0000000000000000000E /* Build configuration list for PBXNativeTarget "FosterWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0DE0000000000000000000C /* Debug */,
+				C0DE0000000000000000000D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

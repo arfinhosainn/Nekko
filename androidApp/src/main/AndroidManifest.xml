@@ -67,6 +67,20 @@
                 <action android:name="android.intent.action.TIME_SET" />
             </intent-filter>
         </receiver>
+
+        <!-- Foster home widget (4x2). UI composed by widget/HomeWidget.kt via Glance;
+             this receiver is the AppWidgetProvider that hands the update to Glance. -->
+        <receiver
+            android:exported="true"
+            android:label="@string/home_widget_description"
+            android:name=".widget.HomeWidgetReceiver">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

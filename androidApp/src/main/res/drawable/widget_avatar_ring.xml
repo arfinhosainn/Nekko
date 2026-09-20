@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Avatar ring matching home CheckinGrid / ContactCheckInRow:
+    sweep #FFCC33 → #34C759 → #FFCC33 (avatarRingBrush). Do not tint —
+    the gradient is baked in.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M24,24m-21,0a21,21 0,1 1,42 0a21,21 0,1 1,-42 0"
+        android:strokeWidth="2.6">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:type="sweep"
+                android:centerX="24"
+                android:centerY="24">
+                <item android:offset="0" android:color="#FFFFCC33" />
+                <item android:offset="0.5" android:color="#FF34C759" />
+                <item android:offset="1" android:color="#FFFFCC33" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

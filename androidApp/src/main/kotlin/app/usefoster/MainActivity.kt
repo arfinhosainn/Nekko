@@ -11,12 +11,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import app.usefoster.BuildConfig
+import app.usefoster.AppSupabase
 import app.usefoster.navigation.Screen
 import app.usefoster.navigation.rememberNavigator
 import app.usefoster.onboarding.OnboardingApp
-import app.usefoster.onboarding.data.supabase.createAppSupabaseClient
 import app.usefoster.onboarding.isFirstRunSurface
+import app.usefoster.widget.WidgetRefresher
 import io.github.jan.supabase.auth.handleDeeplinks
 import app.usefoster.shared.notifications.NotificationTapExtras
 import app.usefoster.shared.notifications.NotificationTapRouter
@@ -28,7 +31,8 @@ import app.usefoster.shared.subscription.initRevenueCat
 import app.usefoster.shared.version.configureAppVersion
 
 class MainActivity : ComponentActivity() {
-    private val supabaseClient by lazy { createAppSupabaseClient() }
+    /** The single app-wide Supabase client (see [AppSupabase]). */
+    private val supabaseClient get() = AppSupabase.client
 
     // Holds the Android 12+ system splash on screen until the initial
     // auth/session routing settles (Splash -> real screen) or the profile
@@ -56,6 +60,23 @@ class MainActivity : ComponentActivity() {
         )
 
         supabaseClient.handleDeeplinks(intent)
+
+        // Keep the home widget in sync with in-app changes: on entering the
+        // app do a debounced refresh; on leaving, force one — the session may
+        // have checked someone in / added or removed a contact, and the widget
+        // otherwise only re-fetches on its 30-minute system tick. See
+        // widget/WidgetRefresher.kt.
+        lifecycle.addObserver(
+            object : DefaultLifecycleObserver {
+                override fun onStart(owner: LifecycleOwner) {
+                    WidgetRefresher.refresh(applicationContext)
+                }
+
+                override fun onStop(owner: LifecycleOwner) {
+                    WidgetRefresher.refresh(applicationContext, force = true)
+                }
+            },
+        )
 
         ReminderScheduler.init(applicationContext)
         initRevenueCat()

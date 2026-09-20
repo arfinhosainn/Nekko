@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Foster</string>
+    <string name="home_widget_description">Your check-ins at a glance</string>
 </resources>

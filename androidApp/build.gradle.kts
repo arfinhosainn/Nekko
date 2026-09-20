@@ -34,6 +34,7 @@ fun resolveSecretOrEmpty(envName: String, propertyName: String): String =
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -44,12 +45,23 @@ kotlin {
 dependencies {
     implementation(project(":shared"))
     implementation(project(":onboarding"))
+    // Real check-in data for the home widget: domain models, the Supabase
+    // contact data source, and the reminder/countdown helpers live in :home.
+    implementation(project(":home"))
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.core.splashscreen)
     implementation(libs.supabase.kt)
     implementation(libs.supabase.auth.kt)
     implementation(libs.supabase.compose.auth)
+
+    implementation(libs.glance.appwidget)
+    // Glance widget previews in Android Studio (debug only) — see the
+    // @Preview-annotated composable in src/debug/../widget/.
+    debugImplementation(libs.glance.appwidget.preview)
+    debugImplementation(libs.glance.preview)
 
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
